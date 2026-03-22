@@ -7,7 +7,7 @@ function Index() {
 
     useEffect(() => {
         async function getPosts() {
-            const response = await fetch(`http://localhost:3000/post`)
+            const response = await fetch(`https://blog-api-production-00510.up.railway.app/post`)
             const json = await response.json()
             setPosts(json)
         }

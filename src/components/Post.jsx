@@ -10,7 +10,7 @@ function Post() {
 
     useEffect(() => {
         async function getPost() {
-            const response = await fetch(`http://localhost:3000/post/${id}`)
+            const response = await fetch(`https://blog-api-production-00510.up.railway.app/post/${id}`)
             const json = await response.json()
             setPost(json)
         }
@@ -19,7 +19,7 @@ function Post() {
 
     useEffect(() => {
         async function getComments() {
-            const response = await fetch(`http://localhost:3000/comment/${id}`)
+            const response = await fetch(`https://blog-api-production-00510.up.railway.app/comment/${id}`)
             const json = await response.json()
             setComments(json)
         }
@@ -35,7 +35,7 @@ function Post() {
                 <p>{post.text}</p>
             </div>
             <div>
-                <form action={`http://localhost:3000/comment/${post.id}`} method='post'>
+                <form action={`https://blog-api-production-00510.up.railway.app/comment/${post.id}`} method='post'>
                     <h3>Add a comment</h3>
                     <div>
                         <label htmlFor='user'>Name</label>
