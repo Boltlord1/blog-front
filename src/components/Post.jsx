@@ -26,6 +26,18 @@ function Post() {
         getComments()
     }, [])
 
+    async function submitForm(event) {
+        event.preventDefault()
+        const formData = new FormData(event.target)
+        const reqBody = new URLSearchParams(formData)
+        const response = await fetch(`https://blog-api-production-00510.up.railway.app/comment/${post.id}`, {
+            method: 'POST',
+            body: reqBody
+        })
+        const json = await response.json()
+        setComments(json)
+    }
+
     return (
         <>
         <Dashboard />
@@ -35,7 +47,7 @@ function Post() {
                 <p>{post.text}</p>
             </div>
             <div>
-                <form action={`https://blog-api-production-00510.up.railway.app/comment/${post.id}`} method='post'>
+                <form onSubmit={submitForm}>
                     <h3>Add a comment</h3>
                     <div>
                         <label htmlFor='user'>Name</label>
