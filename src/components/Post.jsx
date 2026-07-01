@@ -10,7 +10,7 @@ function Post() {
 
     useEffect(() => {
         async function getPost() {
-            const response = await fetch(`https://blog-api-production-00510.up.railway.app/post/${id}`)
+            const response = await fetch(`https://blog-api-delta-flax.vercel.app/post/${id}`)
             const json = await response.json()
             setPost(json)
         }
@@ -19,7 +19,7 @@ function Post() {
 
     useEffect(() => {
         async function getComments() {
-            const response = await fetch(`https://blog-api-production-00510.up.railway.app/comment/${id}`)
+            const response = await fetch(`https://blog-api-delta-flax.vercel.app/comment/${id}`)
             const json = await response.json()
             setComments(json)
         }
@@ -30,7 +30,7 @@ function Post() {
         event.preventDefault()
         const formData = new FormData(event.target)
         const reqBody = new URLSearchParams(formData)
-        const response = await fetch(`https://blog-api-production-00510.up.railway.app/comment/${post.id}`, {
+        const response = await fetch(`https://blog-api-delta-flax.vercel.app/comment/${post.id}`, {
             method: 'POST',
             body: reqBody
         })
